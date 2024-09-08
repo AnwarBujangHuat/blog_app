@@ -4,6 +4,7 @@ import 'package:blog_app/src/application/post_list_view/state/post_list_state.da
 import 'package:blog_app/src/data/post_model/post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 final _formKey = GlobalKey<FormState>();
 
@@ -44,7 +45,8 @@ class _AddPostPageState extends State<AddPostPage> {
         } else if (state is PostLoadSuccess) {
           Navigator.of(context, rootNavigator: true).pop();
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Post added successfully!')),
+            SnackBar(
+                content: Text(AppLocalizations.of(context)!.sucessAddPost)),
           );
           Navigator.of(context, rootNavigator: true).pop();
         }
@@ -54,7 +56,7 @@ class _AddPostPageState extends State<AddPostPage> {
         child: Scaffold(
           resizeToAvoidBottomInset: true,
           appBar: AppBar(
-            title: const Text('Add New Post'),
+            title: Text(AppLocalizations.of(context)!.addPost),
             actions: [
               GestureDetector(
                 onTap: () {
@@ -71,16 +73,18 @@ class _AddPostPageState extends State<AddPostPage> {
                     } catch (e) {
                       // Close loading dialog if open
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Failed to add post.')),
+                        SnackBar(
+                            content:
+                                Text(AppLocalizations.of(context)!.errAddPost)),
                       );
                     }
                   }
                 },
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Add Post',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    AppLocalizations.of(context)!.addPost,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -95,14 +99,14 @@ class _AddPostPageState extends State<AddPostPage> {
                   maxLines: 2,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter title';
+                      return AppLocalizations.of(context)!.errEmptyTitle;
                     }
                     return null;
                   },
                   controller: titleController,
                   style: titleStyle,
                   decoration: InputDecoration(
-                    hintText: 'Title',
+                    hintText: AppLocalizations.of(context)!.appTitle,
                     labelStyle: titleStyle,
                     hintStyle: titleStyle,
                     border: const OutlineInputBorder(
@@ -118,16 +122,16 @@ class _AddPostPageState extends State<AddPostPage> {
                 child: TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter description';
+                      return AppLocalizations.of(context)!.errEmptyDescription;
                     }
                     return null;
                   },
                   maxLines: 8,
                   minLines: 1,
                   controller: bodyController,
-                  decoration: const InputDecoration(
-                    hintText: 'Details',
-                    border: OutlineInputBorder(
+                  decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.description,
+                    border: const OutlineInputBorder(
                       borderSide: BorderSide.none,
                     ),
                   ),

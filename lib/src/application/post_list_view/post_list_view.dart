@@ -7,6 +7,7 @@ import 'package:blog_app/src/application/post_list_view/widgets/bottom_navigatio
 import 'package:blog_app/src/application/post_list_view/widgets/post_widget_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PostPage extends StatefulWidget {
   const PostPage({super.key});
@@ -26,7 +27,9 @@ class _PostPageState extends State<PostPage> {
           SliverAppBar(
             floating: false,
             pinned: true,
-            title: Text(_selectedIndex == 0 ? 'Posts' : 'MyPost'),
+            title: Text(_selectedIndex == 0
+                ? AppLocalizations.of(context)!.posts
+                : AppLocalizations.of(context)!.myPosts),
           ),
 
           /// Switch the user post list and all post list

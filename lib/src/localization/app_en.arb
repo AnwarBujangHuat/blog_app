@@ -1,5 +1,23 @@
 {
   "appTitle": "blog_app",
+  "post": "Post",
+  "posts": "Posts",
+  "myPosts": "My Posts",
+  "comment": "Comment",
+  "addComment": "Add A Comment",
+  "details": "Details",
+  "errEmptyDescription": "Please Enter Description",
+  "errEmptyTitle": "Please Enter Title",
+  "title": "Title",
+  "addPost": "Add Post",
+  "errAddPost": "Failed to add post.",
+  "sucessAddPost": "Post added successfully!",
+  "postedBy": "Posted By",
+  "commentBy": "Comment By",
+  "description": "Description",
+  "remove": "Remove",
+  "likes": "Likes",
+  "delete": "Delete",
   "@appTitle": {
     "description": "The title of the application"
   }

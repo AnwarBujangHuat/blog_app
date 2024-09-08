@@ -1,6 +1,7 @@
 import 'package:blog_app/src/application/post_list_view/widgets/expandable_text.dart';
 import 'package:blog_app/src/data/comment_model.dart/comment_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CommentWidgetCard extends StatelessWidget {
   const CommentWidgetCard({super.key, required this.comment});
@@ -15,7 +16,7 @@ class CommentWidgetCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'commented by ${comment.email}',
+              '${AppLocalizations.of(context)!.commentBy} ${comment.email}',
               style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
             ),
           ],

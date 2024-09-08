@@ -7,6 +7,7 @@ import 'package:blog_app/src/data/comment_model.dart/comment_model.dart';
 import 'package:blog_app/src/data/post_model/post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ViewPostPage extends StatefulWidget {
   const ViewPostPage({super.key, required this.post});
@@ -34,7 +35,7 @@ class _ViewPostPageState extends State<ViewPostPage> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: const Text('Post'),
+        title: Text(AppLocalizations.of(context)!.posts),
       ),
       body: Column(
         children: [
@@ -48,12 +49,12 @@ class _ViewPostPageState extends State<ViewPostPage> {
                     post: widget.post,
                     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      'Comments',
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      AppLocalizations.of(context)!.comment,
+                      style: const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ),
 
@@ -88,13 +89,13 @@ class _ViewPostPageState extends State<ViewPostPage> {
             child: TextField(
               controller: controller,
               decoration: InputDecoration(
-                hintText: 'Add a comment',
+                hintText: AppLocalizations.of(context)!.addComment,
                 suffixIcon: IconButton(
                     onPressed: () {
                       context.read<CommentBloc>().add(AddCommentsEvent(
                           comment: CommentModel(
                               postId: widget.post.id,
-                              id: 0,
+                              id: 1,
                               name: 'Anwar chong',
                               email: 'anwarchong@gmail.com',
                               body: controller.text)));
