@@ -106,7 +106,7 @@ class _AddPostPageState extends State<AddPostPage> {
                   controller: titleController,
                   style: titleStyle,
                   decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.appTitle,
+                    hintText: AppLocalizations.of(context)!.title,
                     labelStyle: titleStyle,
                     hintStyle: titleStyle,
                     border: const OutlineInputBorder(
